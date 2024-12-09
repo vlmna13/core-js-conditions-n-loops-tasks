@@ -129,8 +129,57 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let newStr = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '0':
+        newStr += 'zero';
+        break;
+      case '1':
+        newStr += 'one';
+        break;
+      case '2':
+        newStr += 'two';
+        break;
+      case '3':
+        newStr += 'three';
+        break;
+      case '4':
+        newStr += 'four';
+        break;
+      case '5':
+        newStr += 'five';
+        break;
+      case '6':
+        newStr += 'six';
+        break;
+      case '7':
+        newStr += 'seven';
+        break;
+      case '8':
+        newStr += 'eight';
+        break;
+      case '9':
+        newStr += 'nine';
+        break;
+      case '.':
+        newStr += 'point';
+        break;
+      case ',':
+        newStr += 'point';
+        break;
+      case '-':
+        newStr += 'minus';
+        break;
+      default:
+        break;
+    }
+    if (i !== numberStr.length - 1) {
+      newStr += ' ';
+    }
+  }
+  return newStr;
 }
 
 /**
@@ -145,8 +194,12 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let reflectedStr = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    reflectedStr += str[i];
+  }
+  return str === reflectedStr;
 }
 
 /**
@@ -163,8 +216,13 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
