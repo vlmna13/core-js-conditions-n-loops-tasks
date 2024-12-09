@@ -61,8 +61,17 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  if (queen.y === king.y) {
+    return true;
+  }
+  if (queen.x === king.x) {
+    return true;
+  }
+  if (Math.abs(queen.x - king.x) === Math.abs(queen.y - king.y)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -110,8 +119,27 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let roman = '';
+  const ten = Math.floor(num / 10);
+  if (ten === 1) {
+    roman += 'X';
+  } else if (ten === 2) {
+    roman += 'XX';
+  } else if (ten === 3) {
+    roman += 'XXX';
+  }
+  const digit = num % 10;
+  if (digit === 1) roman += 'I';
+  if (digit === 2) roman += 'II';
+  if (digit === 3) roman += 'III';
+  if (digit === 4) roman += 'IV';
+  if (digit === 5) roman += 'V';
+  if (digit === 6) roman += 'VI';
+  if (digit === 7) roman += 'VII';
+  if (digit === 8) roman += 'VIII';
+  if (digit === 9) roman += 'IX';
+  return roman;
 }
 
 /**
